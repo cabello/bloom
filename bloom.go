@@ -1,3 +1,6 @@
+// Copyright (c) 2013, Danilo Cabello. All rights reserved.
+// Use of this source code is governed by LICENSE file.
+
 package bloom
 
 import (

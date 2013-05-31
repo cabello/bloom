@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Danilo Cabello. All rights reserved.
+// Copyright (c) 2013, Danilo Cabello.
 // Use of this source code is governed by LICENSE file.
 
 package main

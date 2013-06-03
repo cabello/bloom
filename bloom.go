@@ -18,13 +18,13 @@ type Filter struct {
 	chunkSize     int
 }
 
-func New(capacity int, errorRate float64) Filter {
+func New(capacity int, errorRate float64) *Filter {
 	bitTotal := uint64(math.Pow(2, math.Ceil(math.Log2(-float64(capacity)*math.Log(errorRate)/math.Pow(math.Log(2), 2)))))
 	bitArray := make([]byte, bitTotal>>3)
 	hashFunctions := int(math.Floor(math.Log2(1.0 / errorRate)))
 	chunkSize := int(math.Ceil(math.Log2(float64(bitTotal)) / 8))
 
-	return Filter{
+	return &Filter{
 		capacity,
 		errorRate,
 		bitTotal,
@@ -42,8 +42,6 @@ func (f *Filter) Add(key []byte) {
 
 		f.bitArray[byteIndex] |= bitMask
 	}
-
-	// fmt.Printf("\n")
 }
 
 func (f *Filter) Contains(key []byte) bool {
